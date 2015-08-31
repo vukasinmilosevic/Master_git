@@ -33,7 +33,7 @@ histCreator::histCreator(Bool_t isdata,string filename, TCut cut, Double_t minbi
 	
 	if (goFast) NumEntr = ULong64_t (0.01*NumEntr);
 	
-	Double_t label= (1.0*(maxBin-minBin)/nBin);//need to add this to histLabel!	
+//	Double_t label= (1.0*(maxBin-minBin)/nBin);//need to add this to histLabel!	
 	string histLabel= ";"+variableName+" [GeV]  ; Events / ";	
 	Hist= new TH1F(plotName.c_str(),histLabel.c_str() ,nBin,minBin,maxBin);
 	cout<< histLabel<<endl;

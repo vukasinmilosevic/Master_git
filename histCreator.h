@@ -7,11 +7,6 @@
 #include "TCut.h"
 #include <string>
 #include <iostream>
-#include "TFile.h"
-#include "TTree.h"
-#include "TCut.h"
-#include <string>
-
 #include "any2string.h"
 #include "TSystem.h"
 

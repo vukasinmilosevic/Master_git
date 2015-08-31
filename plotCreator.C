@@ -1,9 +1,7 @@
 #include "TLegend.h"
-#include "TH1.h"
 #include "stackCreator.h"
 #include "TPaveText.h"
 #include "TCanvas.h"
-#include "TH1.h"
 
 TPaveText *pt1;
 TPaveText *pt2;
@@ -57,6 +55,7 @@ Mc= new stackCreator("lepEta[0]",Legend,false);
 UpText();
 
 TCanvas *c1 = new TCanvas("Combined plots","Combined plots", 500,650);
+c1->cd();
 if (ratioPlot) 
 	{
 

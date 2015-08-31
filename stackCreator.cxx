@@ -1,16 +1,9 @@
 #include "THStack.h"
 #include "TLegend.h"
 #include "TPaveText.h"
-#include "TFile.h"
-#include "TTree.h"
-#include "TCut.h"
-#include <string>
-#include "any2string.h"
-#include "TSystem.h"
 #include "TMath.h"
+#include "TCut.h"
 #include "Cuts.h"
-
-#include "TH1.h"
 #include "histCreator.h"
 #include "dataList.C"
 #include "dataNamesList.C"
