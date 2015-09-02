@@ -21,7 +21,6 @@ public:
 
 THStack* Stack;
 public:
-	stackCreator(string variableName, TLegend *Legend, Bool_t isData );
-
+	stackCreator(TLegend *Legend, Bool_t isData );
 };
 #endif

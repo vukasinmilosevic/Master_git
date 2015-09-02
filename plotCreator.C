@@ -2,6 +2,7 @@
 #include "stackCreator.h"
 #include "TPaveText.h"
 #include "TCanvas.h"
+#include "Cuts.h"
 
 TPaveText *pt1;
 TPaveText *pt2;
@@ -49,8 +50,8 @@ void plotCreator(Bool_t ratioPlot)
 
 Legend=new TLegend(0.72,0.71,1.0,0.91);
 
-Data= new stackCreator("lepEta[0]",Legend,true);
-Mc= new stackCreator("lepEta[0]",Legend,false);
+Data= new stackCreator(Legend,true);
+Mc= new stackCreator(Legend,false);
 
 UpText();
 

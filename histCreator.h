@@ -32,7 +32,7 @@ class histCreator
 public:	TH1F* Hist;
 public:
 	histCreator(Bool_t isdata,string filename, TCut cut, Double_t minbin, Double_t maxbin, Int_t nbin, Bool_t fill, Int_t color, Bool_t gofast, string plotname, string variablename);
-
+	histCreator(Bool_t isdata,string filename, TCut cut,Float_t binning[], Int_t nbins, Bool_t fill, Int_t color, Bool_t gofast, string plotname, string variablename);
 };
 
 #endif
