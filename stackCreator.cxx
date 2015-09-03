@@ -10,7 +10,7 @@
 #include <string>
 #include "mcList.C"
 #include "mcNamesList.C"
-
+#include "TCanvas.h"
 #include "stackCreator.h"
 
 using namespace std;
@@ -69,8 +69,38 @@ Stack->Add(A[i]->Hist);
 
 }
 
+if (!isData){
 
+//Nb/(Ns+Nb)
+Double_t All[binnum],ZW[binnum],TDY[binnum];
 
+for (int i=1;i<=binnum; i++)
+{
+All[i]=ZW[binnum]=TDY[i]=0;
+}
+
+TH1F *tdy,*zw;
+tdy=new TH1F("h1","h1",binnum,bins1GeV);
+zw=new TH1F("h2","h2",binnum,bins1GeV);
+
+for (int i=1;i<=binnum; i++)
+{
+All[i]=A[0]->Hist->GetBinContent(i)+A[1]->Hist->GetBinContent(i)+A[2]->Hist->GetBinContent(i)+A[3]->Hist->GetBinContent(i)+A[4]->Hist->GetBinContent(i)+A[5]->Hist->GetBinContent(i);
+TDY[i]=A[0]->Hist->GetBinContent(i)+A[1]->Hist->GetBinContent(i)+A[2]->Hist->GetBinContent(i);
+ZW[i]=A[3]->Hist->GetBinContent(i)+A[4]->Hist->GetBinContent(i);
+
+tdy->SetBinContent(i,1.0*TDY[i]/All[i]);
+zw->SetBinContent(i,1.0*ZW[i]/All[i]);
+}
+TCanvas *C = new TCanvas("Background estimation","Background estimation", 500,650);
+C->cd();
+tdy->SetLineColor(kRed);
+zw->SetLineColor(kBlue);
+tdy->SetStats(0);
+
+tdy->Draw();
+zw->Draw("same");
+}
 
 }
 
