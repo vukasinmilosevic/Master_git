@@ -68,18 +68,46 @@ TPad *pad1 = new TPad("pad1","pad1",0., 0.35, 1., 1.);
       pad1->cd();
 
 	}
-Data->Stack->Draw();
+//Data->Stack->Draw();
 
-if (ratioPlot)  Data->Stack->GetXaxis()->SetLabelSize(0);
-Data->Stack->GetYaxis()->SetLabelSize(0.04);
-Mc->Stack->Draw("hist same");
-Data->Stack->Draw("same e1");
-Data->Stack->Draw("same axis");
+//if (ratioPlot)  Data->Stack->GetXaxis()->SetLabelSize(0);
+//Data->Stack->GetYaxis()->SetLabelSize(0.04);
+//Mc->Stack->Draw("hist same");
+//Data->Stack->Draw("same e1");
+//Data->Stack->Draw("same axis");
+Mc->Stack->Draw("hist");
 Legend->Draw("same");
 
 pt1->Draw("same");
 pt2->Draw("same");
 pt3->Draw("same");
 
+/*
+if (ratioPlot)
+{
 
+
+THStack *data=(THStack*)Data->Stack->Clone();
+THStack *mc=(THStack*)Mc->Stack->Clone();
+data->Sumw2();
+data->SetStats(0);
+data->Divide(mc);
+data->SetMarkerStyle(21);
+
+c1->cd();
+TPad *pad2 = new TPad("pad2","pad2",0., 0., 1., 0.35);
+pad2->SetTopMargin(0.1);
+pad2->Draw();
+pad2->cd();
+pad2->SetBottomMargin(0.3);
+pad2->SetGridy();
+data->Draw("ep");
+data->GetYaxis()->SetRangeUser(0.7,1.3);
+data->GetYaxis()->SetLabelSize(0.07);
+data->GetYaxis()->SetTitleSize(0);
+data->GetXaxis()->SetLabelSize(0.07);
+data->GetXaxis()->SetTitleSize(0.1);
+data->GetXaxis()->SetTitleOffset(1.);
+}
+*/
 }
